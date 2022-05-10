@@ -1,0 +1,20 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, color TEXT, size TEXT);
+
+INSERT INTO store VALUES
+(1, "SHIRT", 10, 5, "Black", "S"),
+(2, "Socks", 10, 3, "Green", "M"),
+(3, "Shoes", 10, 33, "Yellow", "L"),
+(4, "Hats", 10, 3, "REd", "XL"),
+(5, "gloves", 10, 43, "Black", "S"),
+(6, "jackets", 10, 12, "Black", "M"),
+(7, "GLasses", 10, 53, "Black", "L"),
+(8, "Milk", 10, 34, "Black", "XL"),
+(9, "TV", 10, 66, "Black", "S"),
+(10, "Lamp", 10, 38, "Black", "M"),
+(11, "PHone", 10, 59, "Black", "L"),
+(12, "Pen", 10, 11, "Black", "XL"),
+(13, "Bike", 10, 99, "Black", "L"),
+(14, "CHair", 10, 48, "Black", "XL"),
+(15, "Table", 5, 90, "Black", "Large");
+SELECT name, price, size FROM store
+ORDER BY price;
