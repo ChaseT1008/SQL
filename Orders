@@ -1,0 +1,69 @@
+In this SQL, I'm quering a database with a couple of tables to 
+quantify various statitics about customers orders and locations. 
+
+
+
+
+1) Which locations in New York received at least 3 orders in January, 
+   and how many orders did they each receive? (Hint: use HAVING).
+
+SELECT DISTINCT location,
+                count(orderID) 
+  FROM JanSales
+ WHERE location LIKE "%New York%"
+ GROUP BY location
+HAVING count(orderID) > 2
+ ORDER BY count(orderID) DESC;
+
+
+
+2) How many of each type of headphone were sold in February?
+
+SELECT DISTINCT product,
+                SUM(Quantity) 
+  FROM FebSales
+ WHERE product LIKE "%headphone%"
+ GROUP BY product;
+ 
+
+3) What was the average amount spent per account in February? (Hint: For this question, 
+ we want the average amount spent / number of accounts, not the amount spent by each account).
+
+ SELECT SUM(Quantity * price) / count(acctnum) 
+  FROM FebSales
+       JOIN
+       customers ON FebSales.orderID = customers.order_id;
+
+
+4) What was the average quantity of products purchased per account in February? (Hint: just like 
+   question 3, we want the overall average, not the average for each account individually).
+   
+ SELECT SUM(Quantity) / count(acctnum) 
+  FROM FebSales
+       JOIN
+       customers ON FebSales.orderID = customers.order_id;
+
+
+
+5) Which product brought in the most revenue in January and how much revenue did it bring in total?
+
+SELECT Product,
+       SUM(Quantity * price) AS Revenue
+  FROM JanSales
+  GROUP BY Product
+  ORDER BY Revenue desc
+ LIMIT 1;
+
+
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  
