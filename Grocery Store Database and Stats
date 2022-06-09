@@ -1,3 +1,6 @@
+In this SQL, I create a table of various items with different characteristics. 
+I then query the table to retrieve the name, price, and size of each item; ordered by the price.
+
 CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, color TEXT, size TEXT);
 
 INSERT INTO store VALUES
@@ -16,5 +19,6 @@ INSERT INTO store VALUES
 (13, "Bike", 10, 99, "Black", "L"),
 (14, "CHair", 10, 48, "Black", "XL"),
 (15, "Table", 5, 90, "Black", "Large");
+
 SELECT name, price, size FROM store
 ORDER BY price;
